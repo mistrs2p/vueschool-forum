@@ -18,12 +18,6 @@ export default {
 
 <style>
 @import url('@/assets/css/style.css');
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/* when importing stylesheet from node-module for css sass or scss */
+/* @import url('~bootstrap/css/bootstrap.css') */
 </style>
