@@ -41,11 +41,23 @@ import dataSource from '@/data.json'
 console.log(dataSource)
 
 export default {
+  props: {
+    id: {
+      type: String,
+      required: true
+    }
+  },
   data () {
     return {
       threads: dataSource.threads,
       posts: dataSource.posts,
       users: dataSource.users
+    }
+  },
+  computed: {
+    thread () {
+      // return this.threads.find(t => t.id === this.id)
+      return this.threads.find(t => t.id === this.$route.params.id)
     }
   },
   methods: {
