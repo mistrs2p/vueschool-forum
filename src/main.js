@@ -5,6 +5,7 @@ import PageHome from '@/components/PageHome'
 const routes = [
   {
     path: '/',
+    name: 'Home',
     component: PageHome
   }
 ]
