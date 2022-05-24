@@ -1,5 +1,9 @@
 <template>
-  <div class="col-large push-top">
+<!-- if an invalid id searched by user, here one of the solutions, add vif for thread -->
+  <div
+    v-if="thread"
+    class="col-large push-top"
+  >
     <h1>{{ thread.title }}</h1>
 
     <div v-for="postId in thread.posts" :key="postId" class="post-list">
@@ -34,6 +38,10 @@
       </div>
     </div>
   </div>
+  <div class="col-full text-center">
+    <h1>This Thread does not exist</h1>
+    <router-link :to="{name: 'Home'}" >Read some cool threads</router-link>
+</div>
 </template>
 
 <script>
