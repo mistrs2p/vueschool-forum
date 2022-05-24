@@ -20,7 +20,7 @@
         <div class="post-content">
           <div>
             <p>
-              {{ post.userId }}
+              {{ post.text }}
             </p>
           </div>
         </div>
