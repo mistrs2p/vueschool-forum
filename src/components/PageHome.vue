@@ -1,6 +1,6 @@
 <template>
 <h1>Welcome to the Forum</h1>
-<ThreadList />
+<ThreadList :threads="threads"/>
 </template>
 
 <script>
@@ -11,6 +11,11 @@ console.log(dataSource)
 export default {
   components: {
     ThreadList
+  },
+  data () {
+    return {
+      threads: dataSource.threads
+    }
   }
 }
 </script>
