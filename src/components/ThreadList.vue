@@ -43,9 +43,14 @@
 import dataSource from '@/data.json'
 
 export default {
+  props: {
+    threads: {
+      type: Array,
+      required: true
+    }
+  },
   data () {
     return {
-      threads: dataSource.threads,
       posts: dataSource.posts,
       users: dataSource.users
     }
