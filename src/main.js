@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import AppDate from '@/components/AppDate'
 import router from '@/rotuer'
 
 const forumApp = createApp(App)
@@ -11,5 +10,16 @@ const forumApp = createApp(App)
 // add a global plugin
 // forumApp.use(plugin-name)
 forumApp.use(router)
-forumApp.component('AppDate', AppDate)
+
+const requireComponent = require.context('./components', true, /App[A-Z]\w+\.(vue|js)$/)
+requireComponent.keys().forEach(function (fileName) {
+  let baseComponentConfig = requireComponent(fileName)
+  baseComponentConfig = baseComponentConfig.default || baseComponentConfig
+  const baseComponentName = baseComponentConfig.name || (
+    fileName
+      .replace(/^.+\//, '')
+      .replace(/\.\w+$/, '')
+  )
+  forumApp.component(baseComponentName, baseComponentConfig)
+})
 forumApp.mount('#app')
