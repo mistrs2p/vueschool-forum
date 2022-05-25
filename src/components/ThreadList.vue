@@ -41,7 +41,6 @@
 
 <script>
 import dataSource from '@/data.json'
-import AppDate from '@/components/AppDate'
 export default {
   props: {
     threads: {
@@ -49,9 +48,7 @@ export default {
       required: true
     }
   },
-  components: {
-    AppDate
-  },
+
   data () {
     return {
       posts: dataSource.posts,

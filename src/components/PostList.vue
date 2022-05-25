@@ -31,16 +31,12 @@
 
 <script>
 import dataSource from '@/data.json'
-import AppDate from '@/components/AppDate.vue'
 export default {
   props: {
     posts: {
       type: Array,
       requierd: true
     }
-  },
-  components: {
-    AppDate
   },
   data () {
     return {
