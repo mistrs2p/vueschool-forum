@@ -1,50 +1,46 @@
 <template>
   <div v-for="post in posts" :key="post.id" class="post-list">
-      <div class="post">
-        <div class="user-info">
-          <a href="#" class="user-name">{{
-            userById(post.userId).name
-          }}</a>
+    <div class="post">
+      <div class="user-info">
+        <a href="#" class="user-name">{{ userById(post.userId).name }}</a>
 
-          <a href="#">
-            <img
-              class="avatar-large"
-              :src="userById(post.userId).avatar"
-              alt=""
-            />
-          </a>
+        <a href="#">
+          <img
+            class="avatar-large"
+            :src="userById(post.userId).avatar"
+            alt=""
+          />
+        </a>
 
-          <p class="desktop-only text-small">107 posts</p>
-        </div>
+        <p class="desktop-only text-small">107 posts</p>
+      </div>
 
-        <div class="post-content">
-          <div>
-            <p>
-              {{ post.text }}
-            </p>
-          </div>
-        </div>
-
-        <div class="post-date text-faded" :title="humanFriendlyDate(post.publishedAt)">
-          {{ diffForHuman(post.publishedAt) }}
+      <div class="post-content">
+        <div>
+          <p>
+            {{ post.text }}
+          </p>
         </div>
       </div>
+      <div class="post-date text-faded">
+        <AppDate :timestamp="post.publishedAt" />
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 import dataSource from '@/data.json'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import localizedData from 'dayjs/plugin/localizedFormat'
-dayjs.extend(relativeTime)
-dayjs.extend(localizedData)
+import AppDate from '@/components/AppDate.vue'
 export default {
   props: {
     posts: {
       type: Array,
       requierd: true
     }
+  },
+  components: {
+    AppDate
   },
   data () {
     return {
@@ -54,12 +50,6 @@ export default {
   methods: {
     userById (userId) {
       return this.users.find((user) => user.id === userId)
-    },
-    diffForHuman (timestamp) {
-      return dayjs.unix(timestamp).fromNow()
-    },
-    humanFriendlyDate (timestamp) {
-      return dayjs.unix(timestamp).format('llll')
     }
   }
 }
