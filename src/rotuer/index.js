@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/pages/HomeView'
 import ThreadShow from '@/pages/ThreadShow'
 import NotFound from '@/pages/NotFound'
+import Forum from '@/pages/Forum'
 
 import dataSource from '@/data.json'
 const routes = [
@@ -32,6 +33,11 @@ const routes = [
         })
       } else return next()
     }
+  },
+  {
+    path: '/forum',
+    name: 'Forum',
+    component: Forum
   },
   {
     path: '/:pathMatch(.*)*',
