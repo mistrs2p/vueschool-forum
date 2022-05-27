@@ -3,7 +3,7 @@ import HomeView from '@/pages/HomeView'
 import ThreadShow from '@/pages/ThreadShow'
 import NotFound from '@/pages/NotFound'
 import Forum from '@/pages/Forum'
-import Category from '@/component/Category'
+import Category from '@/components/Category'
 
 import dataSource from '@/data.json'
 const routes = [

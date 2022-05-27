@@ -3,7 +3,8 @@
     v-for="category in categories"
     :key="category.id"
     :forums="getForumsForCategory(category)"
-    :categorty-name="category.name"
+    :title="category.name"
+    :category-id="category.id"
 />
 </template>
 
