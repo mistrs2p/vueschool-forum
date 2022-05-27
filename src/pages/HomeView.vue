@@ -1,20 +1,20 @@
 <template>
 <h1>Welcome to the Forum</h1>
-<ThreadList :threads="threads"/>
+<ForumList :forums="forums"/>
 </template>
 
 <script>
 import dataSource from '@/data.json'
-import ThreadList from '@/components/ThreadList'
+import ForumList from '@/components/ForumList'
 console.log(dataSource)
 
 export default {
   components: {
-    ThreadList
+    ForumList
   },
   data () {
     return {
-      threads: dataSource.threads
+      forums: dataSource.forums
     }
   }
 }
