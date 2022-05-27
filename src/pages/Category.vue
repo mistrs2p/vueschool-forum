@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import ForumList from './ForumList.vue'
+import ForumList from '@/components/ForumList.vue'
 import sourceData from '@/data.json'
 export default {
   props: {
