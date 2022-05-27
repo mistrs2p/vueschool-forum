@@ -3,6 +3,7 @@ import HomeView from '@/pages/HomeView'
 import ThreadShow from '@/pages/ThreadShow'
 import NotFound from '@/pages/NotFound'
 import Forum from '@/pages/Forum'
+import Category from '@/component/Category'
 
 import dataSource from '@/data.json'
 const routes = [
@@ -33,6 +34,12 @@ const routes = [
         })
       } else return next()
     }
+  },
+  {
+    path: '/category/:id',
+    name: 'Category',
+    component: Category,
+    props: true
   },
   {
     path: '/forum/:id',
