@@ -2,7 +2,7 @@
   <div class="col-full">
     <div class="forum-list">
       <h2 class="list-title">
-        <a href="#">Forums</a>
+        <a href="#">{{ categoryName }}</a>
       </h2>
 
       <div class="forum-listing" v-for="forum in forums" :key="forum.id">
@@ -17,10 +17,8 @@
 
         <div class="threads-count">
           <p>
-              <!-- es2020 ? mark -->
-            <span class="count">{{
-               forum.threads?.length
-            }}</span>
+            <!-- es2020 ? mark -->
+            <span class="count">{{ forum.threads?.length }}</span>
             {{ forumThreadWord(forum) }}
           </p>
         </div>
@@ -43,11 +41,19 @@ export default {
     forums: {
       type: Array,
       required: true
+    },
+    categoryName: {
+      type: String,
+      default: 'Forum'
     }
   },
   methods: {
     forumThreadWord (forum) {
-      return forum.threads ? (forum.threads.length > 1 ? 'threads' : 'thread') : 'No threads'
+      return forum.threads
+        ? forum.threads.length > 1
+          ? 'threads'
+          : 'thread'
+        : 'No threads'
     }
   }
 }
