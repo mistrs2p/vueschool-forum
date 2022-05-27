@@ -35,9 +35,10 @@ const routes = [
     }
   },
   {
-    path: '/forum',
+    path: '/forum/:id',
     name: 'Forum',
-    component: Forum
+    component: Forum,
+    props: true
   },
   {
     path: '/:pathMatch(.*)*',
