@@ -1,20 +1,20 @@
 <template>
 <h1>Welcome to the Forum</h1>
-<ForumList :forums="forums"/>
+<CategoryList :categories="categories"/>
 </template>
 
 <script>
 import dataSource from '@/data.json'
-import ForumList from '@/components/ForumList'
+import CategoryList from '@/components/CategoryList'
 console.log(dataSource)
 
 export default {
   components: {
-    ForumList
+    CategoryList
   },
   data () {
     return {
-      forums: dataSource.forums
+      categories: dataSource.categories
     }
   }
 }
