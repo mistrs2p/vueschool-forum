@@ -5,7 +5,7 @@
 
 <script>
 import ForumList from '@/components/ForumList.vue'
-import sourceData from '@/data.json'
+
 export default {
   props: {
     id: {
@@ -18,14 +18,14 @@ export default {
   },
   computed: {
     category () {
-      return sourceData.categories.find(
+      return this.$store.state.categories.find(
         (category) => category.id === this.id
       )
     }
   },
   methods: {
     getForumsForCategory (category) {
-      return sourceData.forums.filter(
+      return this.$store.state.forums.filter(
         (forum) => forum.categoryId === category.id
       )
     }

@@ -4,17 +4,16 @@
 </template>
 
 <script>
-import dataSource from '@/data.json'
+
 import CategoryList from '@/components/CategoryList'
-console.log(dataSource)
 
 export default {
   components: {
     CategoryList
   },
-  data () {
-    return {
-      categories: dataSource.categories
+  computed: {
+    categories () {
+      return this.$store.state.categories
     }
   }
 }

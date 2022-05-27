@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import dataSource from '@/data.json'
+
 export default {
   props: {
     posts: {
@@ -38,9 +38,9 @@ export default {
       requierd: true
     }
   },
-  data () {
-    return {
-      users: dataSource.users
+  computed: {
+    users () {
+      return this.$store.state.users
     }
   },
   methods: {

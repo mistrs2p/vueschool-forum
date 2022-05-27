@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import dataSource from '@/data.json'
+
 export default {
   props: {
     threads: {
@@ -48,11 +48,12 @@ export default {
       required: true
     }
   },
-
-  data () {
-    return {
-      posts: dataSource.posts,
-      users: dataSource.users
+  computed: {
+    posts () {
+      return this.$store.state.posts
+    },
+    users () {
+      return this.$store.state.users
     }
   },
   methods: {

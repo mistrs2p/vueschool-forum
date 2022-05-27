@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import dataSource from '@/data.json'
+
 import PostList from '@/components/PostList'
 import PostEditor from '@/components/PostEditor'
-console.log(dataSource)
+// console.log(dataSource)
 
 export default {
   props: {
@@ -23,13 +23,13 @@ export default {
     PostList,
     PostEditor
   },
-  data () {
-    return {
-      threads: dataSource.threads,
-      posts: dataSource.posts
-    }
-  },
   computed: {
+    threads () {
+      return this.$store.state.threads
+    },
+    posts () {
+      return this.$store.state.posts
+    },
     thread () {
       return this.threads.find((t) => t.id === this.$route.params.id)
     },
