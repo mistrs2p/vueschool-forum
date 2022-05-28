@@ -1,9 +1,9 @@
 <template>
   <header class="header" id="header">
 
-        <a href="index.html" class="logo">
-            <img src="assets/img/svg/vueschool-logo.svg">
-        </a>
+        <router-link :to="{ name: 'Home'}" class="logo">
+            <img src="@/assets/svg/vueschool-logo.svg">
+        </router-link>
 
         <div class="btn-hamburger">
             <!-- use .btn-humburger-active to open the menu -->
@@ -36,7 +36,7 @@
             </li>
         </ul>
 
-        <ul>
+        <!-- <ul>
             <li class="navbar-item">
                 <a href="index.html">Home</a>
             </li>
@@ -48,15 +48,15 @@
             </li>
             <li class="navbar-item">
                 <a href="thread.html">Thread</a>
-            </li>
+            </li> -->
             <!-- Show these option only on mobile-->
-            <li class="navbar-item mobile-only">
+            <!-- <li class="navbar-item mobile-only">
                 <a href="profile.html">My Profile</a>
             </li>
             <li class="navbar-item mobile-only">
                 <a href="#">Logout</a>
             </li>
-        </ul>
+        </ul> -->
     </nav>
   </header>
 </template>
