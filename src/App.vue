@@ -1,16 +1,19 @@
 <template>
+<TheNavbar />
   <div class="container">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import TheNavbar from './components/TheNavbar.vue'
 // import PageHome from '@/components/PageHome.vue'
+
 const name = 'mahdi'
 export default {
   name: 'App',
   components: {
-    // PageHome
+    TheNavbar
   }
 }
 </script>
