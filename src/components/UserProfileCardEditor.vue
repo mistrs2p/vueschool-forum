@@ -97,6 +97,7 @@ export default {
   },
   methods: {
     save () {
+      this.$store.dispatch('updateUser', { ...this.activeUser })
       console.log('Saving')
     }
   }
