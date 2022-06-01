@@ -2,48 +2,30 @@
   <div class="col-full push-top">
 
           <h1>Create new thread in <i>{{ forum.name}}</i></h1>
-
-          <form @submit.prevent="save">
-              <div class="form-group">
-                <label for="thread_title">Title:</label>
-                <input v-model="title" type="text" id="thread_title" class="form-input" name="title">
-              </div>
-
-              <div class="form-group">
-                <label for="thread_content">Content:</label>
-                <textarea v-model="text" id="thread_content" class="form-input" name="content" rows="8" cols="140"></textarea>
-              </div>
-
-              <div class="btn-group">
-                <button class="btn btn-ghost" @click="cancel">Cancel</button>
-                <button class="btn btn-blue" type="submit" name="Publish">Publish </button>
-              </div>
-          </form>
+          <ThreadEditor @save="save" @cancel="cancel" />
       </div>
 </template>
 
 <script>
+import ThreadEditor from '@/components/ThreadEditor.vue'
 export default {
   props: {
     forumId: { type: String, required: true }
+  },
+  components: {
+    ThreadEditor
   },
   computed: {
     forum () {
       return this.$store.state.forums.find(forum => forum.id === this.forumId)
     }
   },
-  data () {
-    return {
-      title: '',
-      text: ''
-    }
-  },
   methods: {
-    async save () {
+    async save ({ title, text }) {
       const thread = await this.$store.dispatch('createThread', {
         forumId: this.forum.id,
-        title: this.title,
-        thext: this.text
+        title,
+        text
       })
       this.$router.push({ name: 'ThreadShow', params: { id: thread.id } })
     },
