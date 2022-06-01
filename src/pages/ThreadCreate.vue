@@ -1,7 +1,7 @@
 <template>
   <div class="col-full push-top">
 
-          <h1>Create new thread in <i>{{ froum.name}}</i></h1>
+          <h1>Create new thread in <i>{{ forum.name}}</i></h1>
 
           <form @submit.prevent="save">
               <div class="form-group">
@@ -25,7 +25,12 @@
 <script>
 export default {
   props: {
-    forum: { type: Object, required: true }
+    forumId: { type: String, required: true }
+  },
+  computed: {
+    forum () {
+      return this.$store.state.forums.find(forum => forum.id === this.forumId)
+    }
   },
   data () {
     return {
