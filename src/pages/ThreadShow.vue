@@ -4,7 +4,6 @@
       {{ thread.title }}
       <router-link :to="{ name: 'ThreadEdit', params: { id: this.id } }"
         class="btn-green btn-small"
-        tag="button"
       >
         Edit Thread
       </router-link>
